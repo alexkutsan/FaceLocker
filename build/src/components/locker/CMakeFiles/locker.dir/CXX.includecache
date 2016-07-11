@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/components/locker/impl/include/locker_impl.h
+locker/locker.h
+../src/components/locker/impl/include/locker/locker.h
+
+../src/components/locker/include/locker/locker.h
+
+/home/alex/FaceRecognizer/src/components/locker/impl/src/locker_impl.cpp
+locker_impl.h
+/home/alex/FaceRecognizer/src/components/locker/impl/src/locker_impl.h
+iostream
+-
+

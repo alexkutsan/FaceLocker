@@ -1,0 +1,1 @@
+/usr/bin/clang++    -std=c++11   CMakeFiles/FaceRecognizer.dir/main.cpp.o  -o FaceRecognizer -rdynamic src/components/locker/liblocker.a 
