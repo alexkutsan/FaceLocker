@@ -25,7 +25,9 @@ include_directories(
 )
 
 set (LIBRARIES
-    locker face_finder
+    locker
+    face_finder
+    config
     )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})

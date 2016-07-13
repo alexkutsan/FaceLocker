@@ -8,4 +8,15 @@ set(SOURCES
     impl/src/locker_impl.cpp
 )
 
-add_library(locker ${SOURCES})
+if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    set (PLATFORM_SPECIFIC
+        impl/src/private/locker_private_linux.cc
+    )
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Win")
+    set (PLATFORM_SPECIFIC
+        impl/src/private/locker_private_win.cc
+    )
+endif()
+
+
+add_library(locker ${SOURCES} ${PLATFORM_SPECIFIC})

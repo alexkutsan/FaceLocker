@@ -7,6 +7,7 @@
  */
 class Locker {
 public:
+    virtual ~Locker(){}
     /**
      * @brief Lock lock workstation
      */
