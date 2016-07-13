@@ -1,8 +1,0 @@
-/home/alex/FaceRecognizer/build/CMakeFiles/edit_cache.dir
-/home/alex/FaceRecognizer/build/CMakeFiles/rebuild_cache.dir
-/home/alex/FaceRecognizer/build/CMakeFiles/FaceRecognizer.dir
-/home/alex/FaceRecognizer/build/src/components/CMakeFiles/edit_cache.dir
-/home/alex/FaceRecognizer/build/src/components/CMakeFiles/rebuild_cache.dir
-/home/alex/FaceRecognizer/build/src/components/locker/CMakeFiles/edit_cache.dir
-/home/alex/FaceRecognizer/build/src/components/locker/CMakeFiles/rebuild_cache.dir
-/home/alex/FaceRecognizer/build/src/components/locker/CMakeFiles/locker.dir
