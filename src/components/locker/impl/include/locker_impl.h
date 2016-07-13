@@ -5,9 +5,13 @@
 
 namespace locker {
 
+class LockerPrivate;
 class LockerImpl : public Locker {
  public:
+    LockerImpl();
     void Lock() override;
+private:
+    LockerPrivate* impl_;
 };
 
 

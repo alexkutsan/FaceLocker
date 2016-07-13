@@ -1,10 +1,15 @@
 #include "locker_impl.h"
-#include <iostream>
+#include "private/locker_private.h"
 
 namespace locker {
 
+LockerImpl::LockerImpl():
+    impl_(new LockerPrivate()) {
+
+}
+
 void LockerImpl::Lock() {
-    std::cout << "Locked" << std::endl;
+    impl_->Lock();
 }
 
 }  // namespace locker
