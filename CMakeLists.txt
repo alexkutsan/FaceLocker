@@ -20,10 +20,12 @@ add_subdirectory(src/components)
 include_directories(
     ${COMPONENTS_DIR}/locker/include
     ${COMPONENTS_DIR}/locker/impl/include
+    ${COMPONENTS_DIR}/face_finder/include
+    ${COMPONENTS_DIR}/face_finder/impl/include
 )
 
 set (LIBRARIES
-    locker
+    locker face_finder
     )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
