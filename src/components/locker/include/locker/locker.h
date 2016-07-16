@@ -6,12 +6,12 @@
  * to lock workstation
  */
 class Locker {
-public:
-    virtual ~Locker(){}
-    /**
-     * @brief Lock lock workstation
-     */
-    virtual void Lock() = 0;
+ public:
+  virtual ~Locker() {}
+  /**
+   * @brief Lock lock workstation
+   */
+  virtual void Lock() = 0;
 };
 
-#endif // LOCKER_H
+#endif  // LOCKER_H

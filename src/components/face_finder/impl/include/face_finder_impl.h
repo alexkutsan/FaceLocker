@@ -3,15 +3,12 @@
 
 #include "face_finder/face_finder.h"
 
-
 namespace face_finder {
 
 class FaceFinderImpl : public FaceFinder {
  public:
-    Faces FindFaces(const cv::Mat& frame) override;
+  Faces FindFaces(const cv::Mat& frame) override;
 };
 
-
-
-} //  namespace face_finder
+}  //  namespace face_finder
 #endif  // SCR_COMPONENTS_FACE_FINDER_INCLUDE_FACE_FINDER_IMPL_H

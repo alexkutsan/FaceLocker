@@ -3,13 +3,10 @@
 
 namespace locker {
 
-LockerImpl::LockerImpl():
-    impl_(new LockerPrivate()) {
-
-}
+LockerImpl::LockerImpl() : impl_(new LockerPrivate()) {}
 
 void LockerImpl::Lock() {
-    impl_->Lock();
+  impl_->Lock();
 }
 
 }  // namespace locker

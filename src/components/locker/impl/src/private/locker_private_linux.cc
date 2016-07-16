@@ -3,6 +3,6 @@
 
 namespace locker {
 void LockerPrivate::Lock() {
-    std::cout << "Locked Linux" << std::endl;
+  std::cout << "Locked Linux" << std::endl;
 }
 }

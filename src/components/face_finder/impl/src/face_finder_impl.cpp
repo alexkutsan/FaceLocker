@@ -3,8 +3,8 @@
 
 namespace face_finder {
 
-Faces FaceFinderImpl::FindFaces(const cv::Mat &frame) {
-    return Faces();
+Faces FaceFinderImpl::FindFaces(const cv::Mat& frame) {
+  return Faces();
 }
 
 }  // namespace face_finder

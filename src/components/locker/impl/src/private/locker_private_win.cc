@@ -3,6 +3,6 @@
 
 namespace locker {
 void LockerPrivate::Lock() {
-    std::cout << "Locked Windows" << std::endl;
+  std::cout << "Locked Windows" << std::endl;
 }
 }

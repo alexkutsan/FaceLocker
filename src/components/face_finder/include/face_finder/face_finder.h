@@ -4,7 +4,7 @@
 #include "opencv2/core/core.hpp"
 
 namespace cv {
-    class Mat;
+class Mat;
 }
 
 typedef std::vector<cv::Rect> Faces;
@@ -14,11 +14,11 @@ typedef std::vector<cv::Rect> Faces;
  * to find a human faces on the image
  */
 class FaceFinder {
-public:
-    /**
-     * @brief Find faces on image
-     */
-    virtual Faces FindFaces(const cv::Mat& frame) = 0;
+ public:
+  /**
+   * @brief Find faces on image
+   */
+  virtual Faces FindFaces(const cv::Mat& frame) = 0;
 };
 
-#endif // FACE_FINDER_H
+#endif  // FACE_FINDER_H
