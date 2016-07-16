@@ -6,7 +6,7 @@
 int main(int argc, char* argv[]) {
     locker::LockerImpl l;
     face_finder::FaceFinderImpl f;
-    if(!f.FindFaces())
-        l.Lock();
+//    if(!f.FindFaces())
+//        l.Lock();
     return 0;
 }

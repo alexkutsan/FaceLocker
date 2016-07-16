@@ -3,11 +3,12 @@
 
 #include "face_finder/face_finder.h"
 
+
 namespace face_finder {
 
 class FaceFinderImpl : public FaceFinder {
  public:
-    int FindFaces() override;
+    Faces FindFaces(const cv::Mat& frame) override;
 };
 
 

@@ -1,3 +1,5 @@
 add_subdirectory(locker)
 add_subdirectory(face_finder)
 add_subdirectory(config)
+add_subdirectory(video_capture)
+add_subdirectory(user_initialization)
