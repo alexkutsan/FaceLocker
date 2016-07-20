@@ -1,3 +1,6 @@
 [submodule "submodules/opencv"]
 	path = submodules/opencv
 	url = https://github.com/Itseez/opencv.git
+[submodule "src/3rd_party/Timer"]
+	path = src/3rd_party/Timer
+	url = https://github.com/LuxoftAKutsan/Timer

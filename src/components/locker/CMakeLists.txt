@@ -1,4 +1,7 @@
 include_directories(
+
+    ${COMPONENTS_DIR}/utils/include
+    ${COMPONENTS_DIR}/config/include
     ${COMPONENTS_DIR}/locker/include
     ${COMPONENTS_DIR}/locker/impl/include
 )
