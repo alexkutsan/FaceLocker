@@ -1,9 +1,9 @@
 #ifndef LOCK_WATCH_DOG_IMPL_H
 #define LOCK_WATCH_DOG_IMPL_H
 #include <memory>
+#include "config/config.h"
 #include "locker/lock_watch_dog.h"
 #include "utils/timer.h"
-#include "config/config.h"
 
 namespace locker {
 class LockWatchDogImpl : public LockWatchDog {

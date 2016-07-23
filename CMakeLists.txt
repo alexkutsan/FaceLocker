@@ -18,6 +18,7 @@ add_subdirectory(src/components)
 
 
 include_directories(
+    ${COMPONENTS_DIR}/common/include
     ${COMPONENTS_DIR}/locker/include
     ${COMPONENTS_DIR}/locker/impl/include
     ${COMPONENTS_DIR}/face_finder/include
@@ -25,10 +26,14 @@ include_directories(
 )
 
 set (LIBRARIES
+    log4cplus
     locker
     face_finder
     config
     )
 
+
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 target_link_libraries(${PROJECT_NAME} ${LIBRARIES})
+
+file(COPY "log4cplus.properties" DESTINATION ${CMAKE_BINARY_DIR})
