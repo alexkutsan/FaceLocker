@@ -8,6 +8,10 @@ typedef std::function<void()> TimeOutCallBack;
 typedef std::function<void()> StepCallBack;
 
 class Timer {
+    /**
+  /** * @brief set_timeout_callback calls when timeout happens
+  /** * @param callback
+  /** */
   virtual void set_timeout_callback(TimeOutCallBack callback) = 0;
   virtual void set_step_callback(StepCallBack callback) = 0;
   virtual void Start(unsigned int timeout, unsigned int step_timeout) = 0;
