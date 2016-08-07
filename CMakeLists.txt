@@ -22,7 +22,8 @@ include_directories(
     ${COMPONENTS_DIR}/locker/include
     ${COMPONENTS_DIR}/locker/impl/include
     ${COMPONENTS_DIR}/face_finder/include
-    ${COMPONENTS_DIR}/face_finder/impl/include
+    ${COMPONENTS_DIR}/user_interface/include
+    ${COMPONENTS_DIR}/user_interface/impl/include
 )
 
 set (LIBRARIES
@@ -30,6 +31,7 @@ set (LIBRARIES
     locker
     face_finder
     config
+    ui
     )
 
 
