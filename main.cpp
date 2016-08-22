@@ -1,15 +1,25 @@
+#include <thread>
 #include "logger/logger.h"
-
-CREATE_LOGGER("Main")
+#include "timer_impl.h"
+#include <iostream>
+#include <chrono>
 
 int main(int argc, char* argv[]) {
-    log4cplus::initialize();
-    log4cplus::PropertyConfigurator::doConfigure("log4cplus.properties");
-    LOG_FATAL("Hello, fatal!");
-    LOG_WARN("Hello, warn!");
-    LOG_ERROR("Hello, error!");
-    LOG_INFO("Hello, info!");
-    LOG_DEBUG("Hello, debug!");
-    LOG_TRACE("Hello, trace!");
+
+
+    utils::timer::TimerImpl timer_(1, []{
+        for(char letter='a'; letter < 'z' ; ++letter)
+        {
+          std::cout<<letter<<" ";
+        }
+    });
+
+    timer_.Start();
+    for (int i = 0; i < 100; i++){
+        std::cout << i << " ";
+    }
+
+    std::this_thread::sleep_for(std::chrono::seconds(10));
+
     return 0;
 }

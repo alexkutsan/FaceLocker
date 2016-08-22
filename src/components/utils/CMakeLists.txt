@@ -5,6 +5,7 @@ include_directories(
 
 set(SOURCES
     impl/src/timer_impl.cc
+    impl/src/looper_timer_impl.cc
 )
 
 add_library(utils ${SOURCES})
