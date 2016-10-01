@@ -1,14 +1,12 @@
 #include <thread>
-#include "logger/logger.h"
+//#include "logger/logger.h"
 #include "timer_impl.h"
 #include "looper_timer.h"
 #include <iostream>
 #include <chrono>
 
 int main(int argc, char* argv[]) {
-
-
-    utils::timer::LooperTimerImpl looper_timer_(2, []{
+    utils::timer::LooperTimerImpl looper_timer_(1, []{
         for(char letter='a'; letter < 'z' ; ++letter)
         {
           std::cout<<letter<<" ";

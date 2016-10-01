@@ -2,27 +2,31 @@
 #define LOOPER_TIMER_IMPL_H
 #include <functional>
 #include <thread>
-#include "utils/timer.h"
 #include "timer_impl.h"
+#include "utils/timer.h"
 
 namespace utils {
 namespace timer {
 
-class LooperTimerImpl: public TimerImpl {
-public:
+class LooperTimerImpl : public TimerImpl {
+ public:
   LooperTimerImpl(int timeout, CallBack func);
   void Start() override;
+  /**
+   * @brief Stop - stops timer execution
+   */
   void Stop();
 
-private:
+ private:
+  /**
+   * @brief MainThread executes timer considering stop flag
+   */
   void MainThread() override;
 
-  std::mutex timer_mutex_;
-  std::condition_variable cv_;
-  std::thread timer_thread_;
+  /**
+   * @brief stop_flag_ - detects if timer has to be stopped
+   */
   std::atomic<int> stop_flag_;
-  CallBack call_back_;
-  int timeout_;
 };
 
 }  // namespace timer
