@@ -19,7 +19,9 @@ class TimerImpl : public Timer {
   void Start() override;
   void Terminate() override;
 
- protected:
+  bool WaitShots(int shots_count, int timeout);
+
+protected:
   /**
    * @brief DelayedCall will call CallBack after timeout
    * @param timeout time in seconds by the end of which callback will be called

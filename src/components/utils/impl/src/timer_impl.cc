@@ -1,6 +1,5 @@
 #include "timer_impl.h"
 #include <ctime>
-#include <iostream>
 
 namespace utils {
 namespace timer {
@@ -27,6 +26,10 @@ void TimerImpl::Start() {
 void TimerImpl::Terminate() {
   std::unique_lock<std::mutex> lock_(timer_mutex_);
   cv_.notify_one();
+}
+
+bool TimerImpl::WaitShots(int shots_count, int timeout) {
+
 }
 }
 }

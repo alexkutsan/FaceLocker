@@ -6,6 +6,9 @@ include_directories(
 set(SOURCES
     impl/src/timer_impl.cc
     impl/src/looper_timer_impl.cc
+    impl/src/notifier_impl.cc
 )
 
 add_library(utils ${SOURCES})
+
+add_subdirectory(tests)

@@ -12,10 +12,8 @@ class LooperTimerImpl : public TimerImpl {
  public:
   LooperTimerImpl(int timeout, CallBack func);
   void Start() override;
-  /**
-   * @brief Stop - stops timer execution
-   */
-  void Stop();
+
+  void Terminate() override;
 
  private:
   /**

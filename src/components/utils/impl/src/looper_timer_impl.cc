@@ -1,5 +1,4 @@
 #include <looper_timer.h>
-#include <iostream>
 
 namespace utils {
 namespace timer {
@@ -11,9 +10,9 @@ void LooperTimerImpl::Start() {
   TimerImpl::Start();
 }
 
-void LooperTimerImpl::Stop() {
-  stop_flag_ = true;
-  Terminate();
+void LooperTimerImpl::Terminate() {
+    stop_flag_ = true;
+        TimerImpl::Terminate();
 }
 
 void LooperTimerImpl::MainThread() {
