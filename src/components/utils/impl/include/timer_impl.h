@@ -6,31 +6,38 @@
 
 namespace utils {
 namespace timer {
-typedef std::function<void()> CallBack;
 
+/**
+ * @brief The TimerImpl class implements timer
+ */
 class TimerImpl: public Timer {
-    /**
-  /** * @brief set_timeout_callback calls when timeout happens
-  /** * @param callback
-  /** */
+
 public:
   TimerImpl(int timeout, CallBack func);
-//  void set_callback(CallBack callback) override;
-//  unsigned int GetTimeLeft() const override;
+  ~TimerImpl() {
+       timer_thread_.join();
+  }
   void Start() override;
-//  void Stop() override;
   void Terminate() override;
 
-private:
+protected:
+  /**
+   * @brief MainThread starts timer work
+   */
+  virtual void MainThread();
+
+  /**
+   * @brief DelayedCall will call CallBack after timeout
+   * @param timeout time in seconds by the end of which callback will be called
+   * @param func - callback function
+   */
+  void DelayedCall(int timeout,CallBack func);
+
   std::thread timer_thread_;
   std::mutex timer_mutex_;
   std::condition_variable cv_;
   CallBack timer_callback_;
   int timeout_;
-
-  void MainThread() override;
-  void DelayedCall(int timeout,CallBack func);
-
 };
 
 }  // namespace timer
