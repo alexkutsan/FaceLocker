@@ -10,3 +10,5 @@ set(SOURCES
 
 
 add_library(config ${SOURCES})
+
+add_subdirectory(test)

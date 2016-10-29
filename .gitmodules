@@ -7,3 +7,6 @@
 [submodule "tools/styleguide"]
 	path = tools/styleguide
 	url = https://github.com/google/styleguide
+[submodule "3rd-party/limo"]
+	path = 3rd-party/limo
+	url = https://github.com/ddolzhenko/limo
