@@ -7,7 +7,7 @@
 namespace config {
 namespace error {
 enum class ErrorCode {
-  kSuccess,
+  kSuccess = 0,
   kFileNotFound,
   kWrongValue,
   kEmptyString,

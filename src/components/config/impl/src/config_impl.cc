@@ -5,6 +5,10 @@
 #include <tuple>
 
 namespace config {
+
+
+
+
 /**
 * @brief isNumber check if input contains only digits.
 * @param input is a string that should be checked.
@@ -13,7 +17,7 @@ namespace config {
 bool isNumber(const std::string& input) {
   // TODO(IoannaV): #5 Reimplement this function
   const std::string digits = "0123456789";
-  return std::string::npos != input.find_first_not_of(digits);
+  return std::string::npos == input.find_first_not_of(digits);
 }
 /**
  * @brief makeMapaKey unites section and key to one vriable
@@ -64,7 +68,7 @@ void ConfigImpl::SetIntValue(const std::string& section,
                              const std::string& key,
                              const int value) {
   std::string new_key = makeMapKey(section, key);
-  value_storage_[new_key] = value;
+  value_storage_[new_key] = std::to_string(value);
 }
 
 void ConfigImpl::SetStringValue(const std::string& section,
@@ -98,7 +102,7 @@ bool ExtractSection(const std::string& line, std::string* section) {
       return false;
     }
     if (section->empty()) {
-      *section = line.substr(open_bracket, close_bracket);
+      *section = line.substr(open_bracket + 1, close_bracket);
       return true;
     }
   }
@@ -118,12 +122,12 @@ bool ExtractKeyValue(const std::string& line,
                      std::string* key,
                      std::string* value) {
   if (key != nullptr || value != nullptr) {
-    size_t equal = line.find('=');
-    if (equal = std::string::npos) {
+    const size_t equal = line.find('=');
+    if (std::string::npos == equal) {
       return false;
     }
     *key = line.substr(0, equal);
-    *value = line.substr(equal, std::string::npos);
+    *value = line.substr(equal + 1, std::string::npos);
     return true;
   } else {
     return false;
