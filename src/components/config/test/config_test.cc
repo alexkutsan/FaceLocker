@@ -39,9 +39,7 @@ LTEST(config_test) {
         config::ConfigImpl test_config("./config.ini");
         EXPECT_TRUE(test_config.Load());
         auto int_val = test_config.GetIntValue("Main", "int");
-        std::cout << std::get<0>(int_val) << std::endl;
         const config::error::ErrorCode error = std::get<1>(int_val);
-        std::cout << (int) error << std::endl;
         EXPECT_EQ(5, std::get<0>(int_val));
         EXPECT_EQ(config::error::ErrorCode::kSuccess,
                   std::get<1>(int_val));

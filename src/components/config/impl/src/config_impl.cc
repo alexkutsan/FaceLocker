@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <tuple>
+#include <algorithm>
 
 namespace config {
 
@@ -19,6 +20,23 @@ bool isNumber(const std::string& input) {
   const std::string digits = "0123456789";
   return std::string::npos == input.find_first_not_of(digits);
 }
+
+static inline std::string ltrim(std::string string_) {
+    string_.erase(string_.begin(), std::find_if(string_.begin(), string_.end(),
+            std::not1(std::ptr_fun<int, int>(std::isspace))));
+    return string_;
+}
+
+static inline std::string rtrim(std::string string_) {
+    string_.erase(std::find_if(string_.rbegin(), string_.rend(),
+            std::not1(std::ptr_fun<int, int>(std::isspace))).base(), string_.end());
+    return string_;
+}
+
+static inline std::string trim(std::string string_) {
+    return ltrim(rtrim(string_));
+}
+
 /**
  * @brief makeMapaKey unites section and key to one vriable
  * @param section is a string, used to make mapa key
@@ -74,6 +92,7 @@ void ConfigImpl::SetIntValue(const std::string& section,
 void ConfigImpl::SetStringValue(const std::string& section,
                                 const std::string& key,
                                 const std::string& value) {
+
   std::string new_key = makeMapKey(section, key);
   value_storage_[new_key] = value;
 }
@@ -102,7 +121,8 @@ bool ExtractSection(const std::string& line, std::string* section) {
       return false;
     }
     if (section->empty()) {
-      *section = line.substr(open_bracket + 1, close_bracket);
+      *section = line.substr(open_bracket + 1, close_bracket -1);
+      *section = trim(*section);
       return true;
     }
   }
@@ -126,8 +146,8 @@ bool ExtractKeyValue(const std::string& line,
     if (std::string::npos == equal) {
       return false;
     }
-    *key = line.substr(0, equal);
-    *value = line.substr(equal + 1, std::string::npos);
+    *key = trim(line.substr(0, equal));
+    *value = trim(line.substr(equal + 1, std::string::npos));
     return true;
   } else {
     return false;
@@ -149,7 +169,7 @@ bool ConfigImpl::Load() {
     std::string key;
     std::string value;
     if (ExtractKeyValue(line, &key, &value)) {
-      SetStringValue(current_section, key, value);
+     SetStringValue(current_section, key, value);
       continue;
     }
     return true;
