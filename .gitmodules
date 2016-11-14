@@ -1,12 +1,9 @@
 [submodule "submodules/opencv"]
 	path = submodules/opencv
 	url = https://github.com/Itseez/opencv.git
-[submodule "src/3rd_party/Timer"]
-	path = src/3rd_party/Timer
-	url = https://github.com/LuxoftAKutsan/Timer
 [submodule "tools/styleguide"]
 	path = tools/styleguide
 	url = https://github.com/google/styleguide
-[submodule "3rd-party/limo"]
-	path = 3rd-party/limo
+[submodule "tools/limo"]
+	path = tools/limo
 	url = https://github.com/alexkutsan/limo
