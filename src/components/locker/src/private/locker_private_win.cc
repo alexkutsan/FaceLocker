@@ -1,4 +1,4 @@
-#include "private/locker_private.h"
+#include "locker/impl/private/locker_private.h"
 #include <iostream>
 
 namespace locker {

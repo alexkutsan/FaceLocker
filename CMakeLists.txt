@@ -18,10 +18,10 @@ add_subdirectory(src/components)
 
 
 include_directories(
-    ${COMPONENTS_DIR}/common/include
     ${COMPONENTS_DIR}/locker/include
     ${COMPONENTS_DIR}/face_finder/include
     ${COMPONENTS_DIR}/utils/timer/include
+    ${COMPONENTS_DIR}/utils/logger/include
 )
 
 set (LIBRARIES
