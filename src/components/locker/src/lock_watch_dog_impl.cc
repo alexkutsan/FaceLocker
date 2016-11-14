@@ -1,3 +1,4 @@
+#include "locker/impl/lock_watch_dog_impl.h"
 
 static const std::string kLockerSection = "Locker";
 static const std::string kLockTimeOut = "LockTimeOut";
@@ -40,4 +41,3 @@ void locker::LockWatchDogImpl::ProcessState(const bool state) {
   }
 }
 
-#include "lock_watch_dog_impl.h"

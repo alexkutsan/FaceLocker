@@ -1,5 +1,5 @@
-#include "locker_impl.h"
-#include "private/locker_private.h"
+#include "locker/impl/locker_impl.h"
+#include "locker/impl/private/locker_private.h"
 
 namespace locker {
 
