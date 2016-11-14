@@ -20,11 +20,8 @@ add_subdirectory(src/components)
 include_directories(
     ${COMPONENTS_DIR}/common/include
     ${COMPONENTS_DIR}/locker/include
-    ${COMPONENTS_DIR}/locker/impl/include
     ${COMPONENTS_DIR}/face_finder/include
-    ${COMPONENTS_DIR}/face_finder/impl/include
-    ${COMPONENTS_DIR}/utils/include
-    ${COMPONENTS_DIR}/utils/impl/include
+    ${COMPONENTS_DIR}/utils/timer/include
 )
 
 set (LIBRARIES
@@ -32,7 +29,7 @@ set (LIBRARIES
     locker
     face_finder
     config
-    utils
+    timer
     pthread
     )
 

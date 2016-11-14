@@ -3,13 +3,13 @@ set (SRC_LIST
     )
 
 include_directories(
-    ${COMPONENTS_DIR}/utils/include
-    ${COMPONENTS_DIR}/utils/impl/include
+    ${COMPONENTS_DIR}/utils/timer/include
     ${CMAKE_SOURCE_DIR}/3rd-party/limo
 )
 
 set (LIBRARIES
-    utils
+    timer
+    common_utils
     log4cplus
     pthread
     )

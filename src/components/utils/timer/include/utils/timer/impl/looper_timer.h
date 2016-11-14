@@ -1,9 +1,8 @@
 #ifndef LOOPER_TIMER_IMPL_H
 #define LOOPER_TIMER_IMPL_H
+#include "utils/timer/impl/timer_impl.h"
 #include <functional>
 #include <thread>
-#include "timer_impl.h"
-#include "utils/timer.h"
 
 namespace utils {
 namespace timer {

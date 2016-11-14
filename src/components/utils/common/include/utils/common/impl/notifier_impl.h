@@ -1,6 +1,6 @@
 #ifndef NOTIFIER_IMPL_H
 #define NOTIFIER_IMPL_H
-#include "utils/notifier.h"
+#include "utils/common/notifier.h"
 
 namespace utils {
     class NotifierImpl : public Notifier {
