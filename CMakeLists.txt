@@ -1,6 +1,6 @@
 project(FaceRecognizer)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++14")
 
 cmake_minimum_required(VERSION 2.8)
 
@@ -23,6 +23,8 @@ include_directories(
     ${COMPONENTS_DIR}/locker/impl/include
     ${COMPONENTS_DIR}/face_finder/include
     ${COMPONENTS_DIR}/face_finder/impl/include
+    ${COMPONENTS_DIR}/utils/include
+    ${COMPONENTS_DIR}/utils/impl/include
 )
 
 set (LIBRARIES
@@ -30,6 +32,8 @@ set (LIBRARIES
     locker
     face_finder
     config
+    utils
+    pthread
     )
 
 
