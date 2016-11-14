@@ -1,15 +1,10 @@
-#include "logger/logger.h"
-
-CREATE_LOGGER("Main")
+#include <thread>
+//#include "logger/logger.h"
+#include "utils/timer/impl/timer_impl.h"
+#include "utils/timer/impl/looper_timer.h"
+#include <iostream>
+#include <chrono>
 
 int main(int argc, char* argv[]) {
-    log4cplus::initialize();
-    log4cplus::PropertyConfigurator::doConfigure("log4cplus.properties");
-    LOG_FATAL("Hello, fatal!");
-    LOG_WARN("Hello, warn!");
-    LOG_ERROR("Hello, error!");
-    LOG_INFO("Hello, info!");
-    LOG_DEBUG("Hello, debug!");
-    LOG_TRACE("Hello, trace!");
     return 0;
 }
