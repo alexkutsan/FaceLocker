@@ -13,9 +13,9 @@ user .. OS : Unlock
 
 FC -> MC : FaceCoosed(Frame with face box)
 MC -> FC : Reset()
-MC -> FR : ModelCreated()
+MC -> FR : ModelCreated(model)
 FR -> FC : Reset()
-FR -> UW : IsUserPresent()
+FR -> UW : IsUserPresent(boolean)
 UW -> OS : Lock
 
 @enduml
