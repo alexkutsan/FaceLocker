@@ -9,4 +9,4 @@ Short activity diagram:
 
 
 Lifecycle :
-![Activity_diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/alexkutsan/FaceLocker/blob/documentation/doc/assets/lifecycle.puml)
+![Activity_diagram](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/alexkutsan/FaceLocker/documentation/doc/assets/lifecycle.puml)
