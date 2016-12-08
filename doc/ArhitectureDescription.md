@@ -9,4 +9,4 @@ Short activity diagram:
 
 
 Lifecycle :
-![Activity_diagram](http://uml.mvnsearch.org/github/alexkutsan/FaceLocker/blob/documentation/doc/assets/lifecycle.md)
+![Activity_diagram](http://uml.mvnsearch.org/github/alexkutsan/FaceLocker/blob/documentation/doc/assets/lifecycle.puml)
