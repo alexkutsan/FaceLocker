@@ -6,3 +6,7 @@ Global activity diagramm:
 
 Short activity diagram: 
 ![Inter activity diagramm](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/alexkutsan/FaceLocker/documentation/doc/assets/inter_components_activities.md)
+
+
+Lifecycle :
+![Activity_diagram](http://uml.mvnsearch.org/github/alexkutsan/FaceLocker/blob/documentation/doc/assets/lifecycle.md)
