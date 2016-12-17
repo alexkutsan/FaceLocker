@@ -1,13 +1,14 @@
 #ifndef FACE_FINDER_H
 #define FACE_FINDER_H
 #include <vector>
-#include "opencv2/core/core.hpp"
+// #include "opencv2/core/core.hpp"
 
 namespace cv {
 class Mat;
+class Rect;
 }
 
-typedef std::vector<cv::Rect> Faces;
+typedef std::vector<int> Faces;
 
 /**
  * @brief The FaceFinder class provide possibility

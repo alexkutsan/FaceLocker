@@ -1,0 +1,21 @@
+@startuml
+(Face choose) as FC
+(Model creating) as MC
+(Face recognition) as FR
+(UserWatchdog) as UW
+(OS) as OS
+
+actor user 
+user .. FC : Choose face
+user .. MC : Show face in different views
+user .. FR : Be in front of computer
+user .. OS : Unlock
+
+FC -> MC : FaceCoosed(Frame with face box)
+MC -> FC : Reset()
+MC -> FR : ModelCreated(model)
+FR -> FC : Reset()
+FR -> UW : IsUserPresent(boolean)
+UW -> OS : Lock
+
+@enduml
