@@ -1,5 +1,5 @@
 include_directories(
-    ${COMPONENTS_DIR}/video_capture/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/
 )
 
 
