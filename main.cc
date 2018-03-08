@@ -71,18 +71,17 @@ int main()
 
             // Detect faces 
             std::vector<rectangle> faces = detector(cimg);
-            // Find the pose of each face.
-            std::vector<full_object_detection> shapes;
-            for (unsigned long i = 0; i < faces.size(); ++i) {
-                shapes.push_back(pose_model(cimg, faces[i]));
-	        }
             std::cout << faces.size() << std::endl;
-            for (auto& shape:shapes) {
-                for (int k=0; k<shape.num_parts(); k++) {
-                    cv::Point landmark(shape.part(k).x(),
-                                    shape.part(k).y());
-                    cv::circle(temp, landmark, 2, cv::Scalar(255,255,255), 3);    
-                }
+            for (auto& face: faces) {
+                std::cout << "   bottom " << face.bottom() << std::endl;
+                std::cout << "   top " << face.top() << std::endl;
+                std::cout << "   left " << face.left() << std::endl;
+                std::cout << "   right " << face.right() << std::endl;
+                std::cout << "   height " << face.height() << std::endl;
+                std::cout << "   width " << face.width() << std::endl;
+                cv::rectangle(temp, cv::Point(face.left(), face.bottom()),
+                                    cv::Point(face.right(), face.top()),
+                                    cv::Scalar(255,255,255), 2);
             }
             cv::imshow("cam", temp);
             if (cv::waitKey(30) >= 0) {
