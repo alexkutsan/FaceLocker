@@ -33,72 +33,49 @@
 #include <dlib/image_processing.h>
 
 using namespace dlib;
-using namespace std;
 
-int main()
-{
-    try
-    {
-        cv::VideoCapture cap(0);
-        if (!cap.isOpened())
-        {
-            cerr << "Unable to connect to camera" << endl;
-            return 1;
-        }
-
+int main(int argc, char** argv) {
+    try {
 
         // Load face detection and pose estimation models.
         frontal_face_detector detector = get_frontal_face_detector();
         shape_predictor pose_model;
         deserialize("shape_predictor_68_face_landmarks.dat") >> pose_model;
 
-        // Grab and process frames until the main window is closed by the user.
-        while(true)
-        {
-            // Grab a frame
-            cv::Mat temp;
-            if (!cap.read(temp))
-            {
-                break;
-            }
-            // Turn OpenCV's Mat into something dlib can deal with.  Note that this just
-            // wraps the Mat object, it doesn't copy anything.  So cimg is only valid as
-            // long as temp is valid.  Also don't do anything to temp that would cause it
-            // to reallocate the memory which stores the image as that will make cimg
-            // contain dangling pointers.  This basically means you shouldn't modify temp
-            // while using cimg.
+        for (int i = 1 ; i < argc; ++i) {
+            cv::Mat temp = cv::imread(argv[i], CV_LOAD_IMAGE_COLOR);  
             cv_image<bgr_pixel> cimg(temp);
 
             // Detect faces 
             std::vector<rectangle> faces = detector(cimg);
-            std::cout << faces.size() << std::endl;
-            for (auto& face: faces) {
-                std::cout << "   bottom " << face.bottom() << std::endl;
-                std::cout << "   top " << face.top() << std::endl;
-                std::cout << "   left " << face.left() << std::endl;
-                std::cout << "   right " << face.right() << std::endl;
-                std::cout << "   height " << face.height() << std::endl;
-                std::cout << "   width " << face.width() << std::endl;
-                cv::rectangle(temp, cv::Point(face.left(), face.bottom()),
-                                    cv::Point(face.right(), face.top()),
-                                    cv::Scalar(255,255,255), 2);
+            if (faces.size() > 0 ) {
+                std::cout << "Face found : " << argv[i]  << std::endl;
+            } else {
+                std::cout << "Face not found : " << argv[i]  << std::endl;
             }
-            cv::imshow("cam", temp);
-            if (cv::waitKey(30) >= 0) {
-                break;
-            }  
+            // for (auto& face: faces) {
+            //     cv::rectangle(temp, cv::Point(face.left(), face.bottom()),
+            //                         cv::Point(face.right(), face.top()),
+            //                         cv::Scalar(255,255,255), 2);
+            // }
+            
+            // cv::imshow("cam", temp);
+            // if (cv::waitKey(30) >= 0) {
+            //     break;
+            // }  
         }
     }
     catch(serialization_error& e)
     {
+        using namespace std;
         cout << "You need dlib's default face landmarking model file to run this example." << endl;
         cout << "You can get it from the following URL: " << endl;
         cout << "   http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2" << endl;
         cout << endl << e.what() << endl;
     }
-    catch(exception& e)
+    catch(std::exception& e)
     {
-        cout << e.what() << endl;
+        std::cout << e.what() << std::endl;
     }
 }
 
