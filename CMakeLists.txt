@@ -25,8 +25,13 @@ target_link_libraries(example
     lapack
     )
 
-file( COPY ${CMAKE_SOURCE_DIR}/shape_predictor_68_face_landmarks.dat
-      DESTINATION ${CMAKE_BINARY_DIR}/shape_predictor_68_face_landmarks.dat)
+file( COPY ${CMAKE_SOURCE_DIR}/dlib_face_recognition_resnet_model_v1.dat
+      DESTINATION ${CMAKE_BINARY_DIR}/)
+
+
+file( COPY ${CMAKE_SOURCE_DIR}/shape_predictor_5_face_landmarks.dat
+      DESTINATION ${CMAKE_BINARY_DIR}/)
+
 
 file( COPY ${CMAKE_SOURCE_DIR}/atnt_faces 
-      DESTINATION ${CMAKE_BINARY_DIR}/atnt_faces)
+      DESTINATION ${CMAKE_BINARY_DIR}/)
