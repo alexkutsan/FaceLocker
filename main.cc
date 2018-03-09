@@ -37,31 +37,28 @@ std::vector<matrix<rgb_pixel>> get_faces(const std::vector<std::string>& images)
     return faces;
 }
 
-int main(int argc, char** argv) {
-    try {
-        if (argc == 1) {
-            throw std::invalid_argument("No arguments provided");
-        }
-        std::vector<std::string> input_data(argv + 1, argv + argc);
-        auto faces = get_faces(input_data);
-        std::vector<dlib::matrix<float,0,1>> face_descriptors = models.network()(faces);
-        for(const auto& face1 : face_descriptors) {
-         for(const auto& face2 : face_descriptors) {
+int main(int argc, char** argv) try {
+    if (argc == 1) {
+        throw std::invalid_argument("No arguments provided");
+    }
+    std::vector<std::string> input_data(argv + 1, argv + argc);
+    auto faces = get_faces(input_data);
+    std::vector<dlib::matrix<float,0,1>> face_descriptors = models.network()(faces);
+    for(const auto& face1 : face_descriptors) {
+        for(const auto& face2 : face_descriptors) {
             std::cout << dlib::length(face1 - face2) << " ";
          }
          std::cout << std::endl;
-        }
     }
-    catch(dlib::serialization_error& e) {
-        using namespace std;
-        cout << "You need dlib's default face landmarking model file to run this example." << endl;
-        cout << "You can get it from the following URL: " << endl;
-        cout << "   http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2" << endl;
-        cout << endl << e.what() << endl;
-    }
-    catch(std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
+}  catch(dlib::serialization_error& e) {
+    using namespace std;
+    cout << "You need dlib's default face landmarking model file to run this example." << endl;
+    cout << "You can get it from the following URL: " << endl;
+    cout << "   http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2" << endl;
+    cout << endl << e.what() << endl;
+}
+catch(std::exception& e) {
+    std::cout << e.what() << std::endl;
 }
 
 
