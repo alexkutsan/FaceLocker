@@ -1,1 +1,0 @@
-docker build -t developer_fun .
