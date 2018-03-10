@@ -6,5 +6,6 @@ RUN mkdir build
 WORKDIR build
 RUN cmake  -DCMAKE_BUILD_TYPE=Release ..
 RUN make -j4
-RUN chmod a+rw /dev/video0
+ADD entrypoint.sh /usr/bin/video_entry_point.sh
+ENTRYPOINT ["/bin/bash", "-e", "/usr/bin/video_entry_point.sh"]
 CMD ["./video_test"]
