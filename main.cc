@@ -26,7 +26,7 @@ std::vector<matrix<rgb_pixel>> get_faces(const std::string image_path) {
         faces.push_back(std::move(face_chip));
     }
     return faces;
-} 
+}
 
 std::vector<matrix<rgb_pixel>> get_faces(const std::vector<std::string>& images) {
     std::vector<matrix<rgb_pixel>> faces;

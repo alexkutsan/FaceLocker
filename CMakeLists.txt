@@ -17,8 +17,12 @@ target_link_libraries(face_recognition
 
 
 
-add_executable(example example.cc)
-target_link_libraries(example 
+add_executable(video_test
+               test_video.cpp
+               facematcher.cpp
+               videostreamprocessor.cpp)
+
+target_link_libraries(video_test
     dlib::dlib
     ${OpenCV_LIBS}
     blas
@@ -31,6 +35,11 @@ file( COPY ${CMAKE_SOURCE_DIR}/dlib_face_recognition_resnet_model_v1.dat
 
 file( COPY ${CMAKE_SOURCE_DIR}/shape_predictor_5_face_landmarks.dat
       DESTINATION ${CMAKE_BINARY_DIR}/)
+
+file( COPY ${CMAKE_SOURCE_DIR}/haarcascade_frontalface_alt.xml
+      DESTINATION ${CMAKE_BINARY_DIR}/)
+
+
 
 
 file( COPY ${CMAKE_SOURCE_DIR}/atnt_faces 

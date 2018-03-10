@@ -7,6 +7,8 @@
 #include <dlib/string.h>
 #include <dlib/image_io.h>
 #include <dlib/image_processing/frontal_face_detector.h>
+#include "opencv2/objdetect/objdetect.hpp"
+#include <exception>
 
 using namespace dlib;
 // ----------------------------------------------------------------------------------------
@@ -55,6 +57,9 @@ class StaticModels {
         detector_(get_frontal_face_detector()) {
         deserialize("shape_predictor_5_face_landmarks.dat") >> sp_;
         deserialize("dlib_face_recognition_resnet_model_v1.dat") >> net_;       
+        if (!face_cascade_.load("haarcascade_frontalface_alt.xml")) {
+            throw std::runtime_error("File cascade not found");
+        }
     }
     
     dlib::shape_predictor& shape_predictor() {
@@ -69,9 +74,15 @@ class StaticModels {
         return detector_;
     }
 
+    cv::CascadeClassifier& face_cascade() {
+        return face_cascade_;
+    }
+
     dlib::frontal_face_detector detector_;
     dlib::shape_predictor sp_;
     anet_type net_;
+    cv::CascadeClassifier face_cascade_;
 };
 
 #endif
+
