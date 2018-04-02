@@ -25,5 +25,7 @@ RUN make -j2
 RUN make install
 
 RUN apt install -y qtcreator
+RUN apt update && apt install -y plantuml
+
 # RUN apt install -y libopencv-dev libdlib-dev libblas-dev liblapack-dev
 CMD ["/bin/zsh"]

@@ -20,7 +20,8 @@ target_link_libraries(face_recognition
 add_executable(video_test
                test_video.cpp
                facematcher.cpp
-               videostreamprocessor.cpp)
+               videostreamprocessor.cpp
+               faceoverlayhandler.cpp)
 
 target_link_libraries(video_test
     dlib::dlib

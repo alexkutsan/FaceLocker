@@ -11,8 +11,6 @@ public:
     FaceMatcher();
     double MatchFaces(std::string& path_to_face1, std::string& path_to_face2);
 
-
-
     template<typename image_type>
     double MatchFaces(image_type& face1,
                       image_type& face2) {

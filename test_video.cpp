@@ -17,7 +17,8 @@ void CallBackFunc(int event, int x, int y,
 
 void startvidestream() {
 
-    VideoStreamProcessor processor;
+    FaceOverlayHandler overlay_handler_;
+    VideoStreamProcessor processor(overlay_handler_);
     auto key_process = [&](cv::Mat temp) {
         auto key = cv::waitKey(30);
         if (key >= 0) {
@@ -49,6 +50,7 @@ void startvidestream() {
             throw std::runtime_error("Unable to read from cam");
         }
         processor.process(temp);
+        overlay_handler_.drawOverlay(temp);
         cv::imshow("cam", temp);
         key_process(temp);
     }

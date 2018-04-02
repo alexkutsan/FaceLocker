@@ -12,21 +12,21 @@ void DrawBoldRect(cv::Mat frame, cv::Rect rect) {
 }
 
 
-VideoStreamProcessor::VideoStreamProcessor()
-{
+VideoStreamProcessor::VideoStreamProcessor(FaceOverlayHandler& handler):
+    handler_(handler) {
 
 }
 
 void VideoStreamProcessor::process(cv::Mat curren_frame) {
     current_frame_ = curren_frame;
-    auto rects = face_matcher.ExtractFacesRect(curren_frame);
-    for(auto& rect: rects) {
-        DrawSimpleRect(curren_frame, rect);
-    }
-
+    FaceOverlay overlay_;
+    overlay_.frame = curren_frame;
+    auto all_faces = face_matcher.ExtractFacesRect(curren_frame);
+    overlay_.all_faces = all_faces;
     if (!saved_frame_.empty()) {
-        for(auto& rect: rects) {
+        for(auto& rect: all_faces) {
             cv::Mat face = curren_frame(rect);
+
             dlib::matrix<rgb_pixel> dface;
             if(!face_matcher.ExtractFace(face, &dface)) {
                 std::cout << "OpenCV did found face but dlib does not" << std::endl;
@@ -36,10 +36,11 @@ void VideoStreamProcessor::process(cv::Mat curren_frame) {
                                                       saved_face_);
             std::cout << distance << std::endl;
             if (distance < 0.6) {
-                DrawBoldRect(curren_frame, rect);
+                overlay_.main_face = rect;
             }
         }
     }
+    handler_.set_current_overlay(overlay_);
 }
 
 void VideoStreamProcessor::onClick(long x, long y) {
